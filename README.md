@@ -1,10 +1,28 @@
 # Kantin Putri SMP N 1 Simanindo
 
-Website resmi untuk Kantin Putri SMP N 1 Simanindo. Dibangun menggunakan Next.js, Prisma, dan PostgreSQL.
+Website resmi untuk **Kantin Putri SMP N 1 Simanindo**. Proyek ini bertujuan untuk mendigitalisasi sistem kantin sekolah, memudahkan siswa dan guru untuk melihat katalog jajanan, makanan, serta peralatan sekolah secara *online* sebelum berbelanja.
+
+Dibangun dengan antarmuka yang modern, responsif, dan tema *dark mode* elegan menggunakan Next.js, Prisma, dan PostgreSQL.
 
 **🌐 Live Demo:** [https://kantin-smp-n1-simanindo-ip5abmrm2-legalation.vercel.app/](https://kantin-smp-n1-simanindo-ip5abmrm2-legalation.vercel.app/)
 
-## Fitur
+## 📸 Cuplikan Layar (Screenshots)
+
+> **Catatan untuk Admin:** Silakan *drag and drop* (tarik dan lepas) gambar-gambar screenshot ke bagian ini saat mengedit di GitHub!
+
+### 1. Halaman Utama (Hero Section)
+*(Gambar Halaman Utama di sini)*
+
+### 2. Katalog Menu 
+*(Gambar Katalog Menu di sini)*
+
+### 3. Perjalanan Singkat
+*(Gambar Animasi Perjalanan di sini)*
+
+### 4. Lokasi Kantin
+*(Gambar Peta Lokasi di sini)*
+
+## ✨ Fitur Utama
 - **Halaman Utama:** Menampilkan daftar menu kantin beserta foto dan harga.
 - **Halaman Admin:** Mengelola menu (Tambah, Edit, Hapus) dan menandai status stok (Tersedia/Habis).
 - **Upload Gambar:** Terintegrasi dengan Supabase Storage untuk upload gambar menu.
