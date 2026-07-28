@@ -5,10 +5,11 @@ import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 import Link from 'next/link';
 
-export default async function AdminPage(props: { searchParams: Promise<{ edit?: string }> | { edit?: string } }) {
+export default async function AdminPage(props: { searchParams: Promise<{ edit?: string, error?: string }> | { edit?: string, error?: string } }) {
   // Await searchParams conditionally for Next.js 15+ compatibility, or just use it if it's Next.js 14
   const searchParams = await props.searchParams;
   const editId = searchParams?.edit ? parseInt(searchParams.edit) : null;
+  const hasError = searchParams?.error === '1';
 
   const cookieStore = await cookies();
   const authCookie = cookieStore.get('admin_auth');
@@ -20,14 +21,19 @@ export default async function AdminPage(props: { searchParams: Promise<{ edit?: 
         <div className="admin-login glassmorphism">
           <h2>Login Admin</h2>
           <p style={{marginBottom: '1rem'}}>Masukkan kata sandi untuk masuk.</p>
+          {hasError && <p style={{color: 'red', marginBottom: '1rem', fontWeight: 'bold'}}>Kata sandi salah!</p>}
           <form action={async (formData) => {
             'use server';
             const password = formData.get('password');
-            const truePassword = process.env.ADMIN_PASSWORD || 'admin123';
+            // Bersihkan spasi jika ada saat copy-paste dari Vercel env
+            const truePassword = (process.env.ADMIN_PASSWORD || 'admin123').trim();
+            
             if (password === truePassword) {
               (await cookies()).set('admin_auth', 'authenticated', { maxAge: 60 * 60 * 24 });
               revalidatePath('/admin');
               redirect('/admin');
+            } else {
+              redirect('/admin?error=1');
             }
           }}>
             <input type="password" name="password" placeholder="Kata Sandi Rahasia" required />
