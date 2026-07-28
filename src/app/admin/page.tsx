@@ -101,23 +101,25 @@ export default async function AdminPage(props: { searchParams: Promise<{ edit?: 
             )}
             {menus.map((menu, index) => (
               editId === menu.id ? (
-                <tr key={menu.id} style={{backgroundColor: '#f9f9f9'}}>
+                <tr key={menu.id} style={{backgroundColor: 'rgba(255,255,255,0.03)'}}>
                   <td colSpan={6}>
                     <form action={editMenu} style={{display:'flex', gap:'10px', flexWrap:'wrap', padding:'10px'}} encType="multipart/form-data">
                       <input type="hidden" name="id" value={menu.id} />
-                      <input type="text" name="nama" defaultValue={menu.nama} required style={{flex:1, minWidth:'150px'}} />
-                      <select name="kategori" defaultValue={menu.kategori} required>
-                        <option value="Jajanan">Jajanan</option>
-                        <option value="Peralatan Sekolah">Peralatan Sekolah</option>
+                      <input type="text" name="nama" defaultValue={menu.nama} required style={{flex:1, minWidth:'150px', background:'rgba(255,255,255,0.05)', border:'1px solid rgba(255,255,255,0.1)', color:'#fff', padding:'0.8rem', borderRadius:'4px'}} />
+                      <select name="kategori" defaultValue={menu.kategori} required style={{background:'rgba(255,255,255,0.05)', border:'1px solid rgba(255,255,255,0.1)', color:'#fff', padding:'0.8rem', borderRadius:'4px'}}>
+                        <option value="Jajanan" style={{color:'#000'}}>Jajanan</option>
+                        <option value="Peralatan Sekolah" style={{color:'#000'}}>Peralatan Sekolah</option>
                       </select>
-                      <input type="number" name="harga" defaultValue={menu.harga} required style={{width:'100px'}} />
+                      <input type="number" name="harga" defaultValue={menu.harga} required style={{width:'100px', background:'rgba(255,255,255,0.05)', border:'1px solid rgba(255,255,255,0.1)', color:'#fff', padding:'0.8rem', borderRadius:'4px'}} />
                       <div style={{display: 'flex', flexDirection: 'column', gap: '5px', flex: 1}}>
-                        <input type="file" name="gambar_file" accept="image/*" style={{padding: '0.5rem', background: 'rgba(255,255,255,0.05)', fontSize: '0.8rem'}} />
-                        <input type="url" name="gambar_url" defaultValue={menu.gambar_url || ''} placeholder="Link Gambar (Opsional)" />
+                        <input type="file" name="gambar_file" accept="image/*" style={{padding: '0.5rem', background: 'rgba(255,255,255,0.05)', border:'1px solid rgba(255,255,255,0.1)', color:'#fff', borderRadius:'4px', fontSize: '0.8rem'}} />
+                        <input type="url" name="gambar_url" defaultValue={menu.gambar_url || ''} placeholder="Atau Link Gambar URL" style={{background:'rgba(255,255,255,0.05)', border:'1px solid rgba(255,255,255,0.1)', color:'#fff', padding:'0.5rem', borderRadius:'4px', fontSize: '0.8rem'}} />
                       </div>
-                      <input type="text" name="deskripsi" defaultValue={menu.deskripsi || ''} placeholder="Deskripsi" style={{flex:1}} />
-                      <button type="submit" className="btn-primary">Simpan</button>
-                      <Link href="/admin" className="btn-secondary" style={{padding:'0.5rem 1rem', textDecoration:'none', color:'#fff'}}>Batal</Link>
+                      <input type="text" name="deskripsi" defaultValue={menu.deskripsi || ''} placeholder="Deskripsi" style={{flex:1, background:'rgba(255,255,255,0.05)', border:'1px solid rgba(255,255,255,0.1)', color:'#fff', padding:'0.8rem', borderRadius:'4px'}} />
+                      <div style={{display: 'flex', gap: '10px', alignItems: 'center'}}>
+                        <button type="submit" className="btn-primary" style={{padding:'0.8rem 1.5rem'}}>Simpan</button>
+                        <Link href="/admin" className="btn-secondary" style={{padding:'0.8rem 1.5rem', textDecoration:'none', color:'#fff', background:'rgba(255,255,255,0.1)', border:'1px solid rgba(255,255,255,0.2)', borderRadius:'4px'}}>Batal</Link>
+                      </div>
                     </form>
                   </td>
                 </tr>

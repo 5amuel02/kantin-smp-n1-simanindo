@@ -9,21 +9,21 @@ datasource db {
 }
 
 model Menu {
-  id          Int      @id @default(autoincrement())
-  nama        String
-  deskripsi   String?
-  harga       Int
-  gambar_url  String?
-  kategori    String   @default("Jajanan")
-  tersedia    Boolean  @default(true)
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id         Int      @id @default(autoincrement())
+  nama       String
+  deskripsi  String?
+  harga      Int
+  gambar_url String?
+  kategori   String   @default("Jajanan")
+  tersedia   Boolean  @default(true)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
 }
 
 model Review {
-  id          Int      @id @default(autoincrement())
-  pengguna    String
-  rating      Int
-  komentar    String
-  dibuatPada  DateTime @default(now())
+  id         Int      @id @default(autoincrement())
+  pengguna   String
+  rating     Int
+  komentar   String
+  dibuatPada DateTime @default(now())
 }
