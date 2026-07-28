@@ -64,7 +64,7 @@ export default async function AdminPage(props: { searchParams: Promise<{ edit?: 
       </div>
 
       <div className="admin-form">
-        <form action={addMenu} style={{display:'flex', flexDirection:'column', gap:'10px', gridColumn: '1 / -1'}}>
+        <form action={addMenu} style={{display:'flex', flexDirection:'column', gap:'10px', gridColumn: '1 / -1'}} encType="multipart/form-data">
           <h3>Tambah Menu Baru</h3>
           <input type="text" name="nama" placeholder="Nama Menu (misal: Nasi Goreng)" required />
           <textarea name="deskripsi" placeholder="Deskripsi Singkat (opsional)"></textarea>
@@ -73,7 +73,11 @@ export default async function AdminPage(props: { searchParams: Promise<{ edit?: 
             <option value="Jajanan">Jajanan</option>
             <option value="Peralatan Sekolah">Peralatan Sekolah</option>
           </select>
-          <input type="url" name="gambar_url" placeholder="Link Gambar URL (Unsplash/Imgur)" />
+          <div style={{display: 'flex', flexDirection: 'column', gap: '5px'}}>
+            <label style={{fontSize: '0.9rem', color: '#ccc'}}>Upload Gambar (Pilih File) ATAU masukkan Link URL:</label>
+            <input type="file" name="gambar_file" accept="image/*" style={{padding: '0.5rem', background: 'rgba(255,255,255,0.05)'}} />
+            <input type="url" name="gambar_url" placeholder="Link Gambar URL (Unsplash/Imgur)" />
+          </div>
           <button type="submit" className="btn-primary" style={{alignSelf: 'flex-start'}}>+ Tambah Menu</button>
         </form>
       </div>
@@ -99,7 +103,7 @@ export default async function AdminPage(props: { searchParams: Promise<{ edit?: 
               editId === menu.id ? (
                 <tr key={menu.id} style={{backgroundColor: '#f9f9f9'}}>
                   <td colSpan={6}>
-                    <form action={editMenu} style={{display:'flex', gap:'10px', flexWrap:'wrap', padding:'10px'}}>
+                    <form action={editMenu} style={{display:'flex', gap:'10px', flexWrap:'wrap', padding:'10px'}} encType="multipart/form-data">
                       <input type="hidden" name="id" value={menu.id} />
                       <input type="text" name="nama" defaultValue={menu.nama} required style={{flex:1, minWidth:'150px'}} />
                       <select name="kategori" defaultValue={menu.kategori} required>
@@ -107,7 +111,10 @@ export default async function AdminPage(props: { searchParams: Promise<{ edit?: 
                         <option value="Peralatan Sekolah">Peralatan Sekolah</option>
                       </select>
                       <input type="number" name="harga" defaultValue={menu.harga} required style={{width:'100px'}} />
-                      <input type="url" name="gambar_url" defaultValue={menu.gambar_url || ''} placeholder="Link Gambar" style={{flex:1}} />
+                      <div style={{display: 'flex', flexDirection: 'column', gap: '5px', flex: 1}}>
+                        <input type="file" name="gambar_file" accept="image/*" style={{padding: '0.5rem', background: 'rgba(255,255,255,0.05)', fontSize: '0.8rem'}} />
+                        <input type="url" name="gambar_url" defaultValue={menu.gambar_url || ''} placeholder="Link Gambar (Opsional)" />
+                      </div>
                       <input type="text" name="deskripsi" defaultValue={menu.deskripsi || ''} placeholder="Deskripsi" style={{flex:1}} />
                       <button type="submit" className="btn-primary">Simpan</button>
                       <Link href="/admin" className="btn-secondary" style={{padding:'0.5rem 1rem', textDecoration:'none', color:'#fff'}}>Batal</Link>
