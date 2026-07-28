@@ -11,16 +11,20 @@ Dibangun dengan antarmuka yang modern, responsif, dan tema *dark mode* elegan me
 > **Catatan untuk Admin:** Silakan *drag and drop* (tarik dan lepas) gambar-gambar screenshot ke bagian ini saat mengedit di GitHub!
 
 ### 1. Halaman Utama (Hero Section)
-*(Gambar Halaman Utama di sini)*
+<img width="1882" height="894" alt="Screenshot 2026-07-28 105602" src="https://github.com/user-attachments/assets/06c3bfe7-9c2e-4bc7-b239-2a825f1d6583" />
+
 
 ### 2. Katalog Menu 
-*(Gambar Katalog Menu di sini)*
+<img width="1882" height="894" alt="Screenshot 2026-07-28 105602" src="https://github.com/user-attachments/assets/69c28784-8bdc-4ee2-8373-be1bc8da1328" />
+
 
 ### 3. Perjalanan Singkat
-*(Gambar Animasi Perjalanan di sini)*
+<img width="1882" height="894" alt="Screenshot 2026-07-28 105602" src="https://github.com/user-attachments/assets/08bf08ee-acf2-49d5-b7e6-c9712601c901" />
+
 
 ### 4. Lokasi Kantin
-*(Gambar Peta Lokasi di sini)*
+<img width="1882" height="894" alt="Screenshot 2026-07-28 105602" src="https://github.com/user-attachments/assets/817bae70-3662-4d89-87e5-720c241900eb" />
+
 
 ## ✨ Fitur Utama
 - **Halaman Utama:** Menampilkan daftar menu kantin beserta foto dan harga.
