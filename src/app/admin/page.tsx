@@ -99,7 +99,7 @@ export default async function AdminPage(props: { searchParams: Promise<{ edit?: 
             {menus.length === 0 && (
               <tr><td colSpan={5} style={{textAlign:'center'}}>Belum ada data.</td></tr>
             )}
-            {menus.map(menu => (
+            {menus.map((menu, index) => (
               editId === menu.id ? (
                 <tr key={menu.id} style={{backgroundColor: '#f9f9f9'}}>
                   <td colSpan={6}>
@@ -123,7 +123,7 @@ export default async function AdminPage(props: { searchParams: Promise<{ edit?: 
                 </tr>
               ) : (
                 <tr key={menu.id}>
-                  <td>{menu.id}</td>
+                  <td>{menus.length - index}</td>
                   <td><strong>{menu.nama}</strong></td>
                   <td><span className="badge-category" style={{background:'#eee', padding:'2px 8px', borderRadius:'12px', fontSize:'0.8rem'}}>{menu.kategori}</span></td>
                   <td>Rp {menu.harga.toLocaleString('id-ID')}</td>
